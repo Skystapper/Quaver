@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 3px;
+    display: flex;
+    background-color: black;
+    color: white;
+    
+
+}
+img{
+    height: 25px;
+    filter: invert(1);
+}
+.boxes{
+    margin: 2px;
+    background-color: #121212;
+    
+    border-radius: 12px;
+
+}
+
+.left{
+    width: 25vw;
+}
+
+
+li{
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    gap: 10px;
+}
+.right{
+    width: 75vw;
+    
+}
