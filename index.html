@@ -23,22 +23,24 @@
             <h1><img src="img/musiclibrary.svg" alt="library"> library</h1>
 
             <div class="songlist">
-                <ul>
-                    <li>Song name</li>
-                </ul>
+                <ol>
+                    <li>
+                        <div class="songblock">
+                            <img src="img/logo.svg" alt="">
+
+                            <div class="info">
+                                <div>Song Name</div>
+                                <div>Artist Name</div>
+                            </div>
+                        </div>
+                        <img id="playnow" src="img/play.svg" alt="">
+                    </li>
+                </ol>
             </div>
 
 
 
-            <div class="footer">
-                <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
-                <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
-                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
-                </div>
-                <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
-                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
-                <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
-            </div>
+            
         </div>
     </div>
     <div class="right boxes">
@@ -74,22 +76,49 @@
             </div>
             <div class="quabar">
                 <div class="playbar">
-                    <div class="songinfo"></div>
-                    <div class="songbuttons">
-                        <img src="img/prevsong.svg" alt="">
-                        <img src="img/play.svg" alt="">
-                        <img src="img/nextsong.svg" alt="">
+                    <div class="seekbar">
+                        <div class="circle">
+
+                        </div>
                     </div>
-                    <div class="seekbar">zz</div>
+                    <div class="abovebar">
 
 
-                </div>
-            </div>
+                        <div class="songinfo">
+
+                        </div>
+                        <div class="songbuttons">
+                            <img width="35" id="previous" src="img/prevsong.svg" alt="">
+                            <img width="35" id="play" src="img/play.svg" alt="">
+                            <img width="35" id="next" src="img/nextsong.svg" alt="">
+                        </div>
+                        <div class="timevol">
+
+                       
+                        <div class="songtime">
+
+                        </div>
+                        <div class="volume">
+                            <img width="25" src="img/volume.svg" alt="">
+                            <div class="range">
+                                <input type="range" name="volume" id="">
+                            </div>
+                        </div>
+                    </div>
+                            </div>
         </div>
 
     </div>
 
-
+    <!-- <div class="footer">
+        <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+        <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+        <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+        </div>
+        <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+        <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+        <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+    </div> -->
 
     <!-- javascript -->
     <script src="script.js"></script>
