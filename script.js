@@ -1,5 +1,5 @@
 let currSong = new Audio()
-
+let songs;
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
@@ -141,11 +141,70 @@ play.addEventListener("click", ()=>{
 })
 
 
-
-
 currSong.addEventListener("timeupdate", ()=>{
     
     document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currSong.currentTime)}/${secondsToMinutesSeconds(currSong.duration)}`
+    document.querySelector(".circle").style.left = currSong.currentTime*100/currSong.duration + "%"
+
+
+})
+// document.querySelector(".seekbar").addEventListener("click", e=>{
+//     let percent = (e.offsetX*100/e.target.getBoundingClientRect().width)
+//     document.querySelector(".circle").style.left = (e.offsetX*100/e.target.getBoundingClientRect().width) + "%"
+//     currSong.currentTime = currSong.duration*percent/100
+
+// })
+
+let circle = document.querySelector(".circle");
+let seekbar = document.querySelector(".seekbar");
+let isDragging = false;
+
+circle.addEventListener("mousedown", startDragging);
+seekbar.addEventListener("click", moveCircle);
+
+function startDragging(e) {
+    isDragging = true;
+}
+
+function moveCircle(e) {
+    if (!isDragging) {
+        let offsetX = e.clientX - seekbar.getBoundingClientRect().left;
+        let percent = (offsetX * 100 / seekbar.getBoundingClientRect().width);
+        if (percent >= 0 && percent <= 100) {
+            circle.style.left = percent + "%";
+            currSong.currentTime = currSong.duration * percent / 100;
+        }
+    }
+}
+
+document.addEventListener("mousemove", dragCircle);
+document.addEventListener("mouseup", stopDragging);
+
+function dragCircle(e) {
+    if (isDragging) {
+        let offsetX = e.clientX - seekbar.getBoundingClientRect().left;
+        let percent = (offsetX * 100 / seekbar.getBoundingClientRect().width);
+        if (percent >= 0 && percent <= 100) {
+            circle.style.left = percent + "%";
+            currSong.currentTime = currSong.duration * percent / 100;
+        }
+    }
+}
+
+function stopDragging(e) {
+    isDragging = false;
+}
+
+
+
+previous.addEventListener("click", ()=>{
+
+})
+
+next.addEventListener("click", ()=>{
+    console.log(currSong.src.split("/").slice(-1))
+    let index = songs.indexOf(currSong.src.split("/").slice(-1)[0])
+    console.log(songs, index)
 })
 
 }    
