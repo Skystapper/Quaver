@@ -198,15 +198,57 @@ function stopDragging(e) {
 
 
 previous.addEventListener("click", ()=>{
+    // Extract the file name and encode it
+let fileName = encodeURIComponent(decodeURIComponent(currSong.src.split("/").pop()));
+
+// Find the index
+let index = songs.indexOf(fileName);
+
+// Check if index is valid and play the previous song
+if (index !== -1 && index - 1 >= 0) {
+    let previousSong = songs[index - 1];
+    playMusic(previousSong);
+}
+
 
 })
 
 next.addEventListener("click", ()=>{
-    console.log(currSong.src.split("/").slice(-1))
-    let index = songs.indexOf(currSong.src.split("/").slice(-1)[0])
-    console.log(songs, index)
+    
+    
+   // Extract the file name and encode it
+let fileName = encodeURIComponent(decodeURIComponent(currSong.src.split("/").pop()));
+
+// Find the index
+let index = songs.indexOf(fileName);
+
+// Check if index is valid and play the next song
+if (index !== -1 && index + 1 < songs.length) {
+    let nextSong = songs[index + 1];
+    playMusic(nextSong);
+    console.log(nextSong);
+}
+
 })
 
+
+document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+    currSong.volume = parseInt(e.target.value)/100
+})
+
+
+
+document.querySelector(".hamburger").addEventListener("click", ()=>{
+    document.querySelector(".left").style.left = "0%"
+    document.querySelector(".right").style.filter = "blur(3px)"
+})
+
+document.querySelector(".cross").addEventListener("click", ()=>{
+    document.querySelector(".left").style.left = "-250%"
+    document.querySelector(".right").style.filter = "blur(0px)"
+}
+
+)
 }    
    
 main()
