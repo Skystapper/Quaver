@@ -8,8 +8,8 @@ body{
     display: flex;
     background-color: black;
     color: white;
-    padding: 4px;
-
+    padding: 0px;
+    overflow-x: hidden;
 }
 .left img{
     height: 25px;
@@ -22,7 +22,12 @@ body{
     border-radius: 12px;
 
 }
-
+.nav{
+     width: 127px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .left{
     width: 25vw;
     
@@ -34,7 +39,7 @@ body{
     position: relative;
     margin-top: 4px;
     flex-wrap: wrap;
-overflow-y: scroll;
+overflow-y: auto;
 
 }
 
@@ -61,8 +66,10 @@ li{
 }
 .right{
     width: 75vw;
-    margin-left: 4px;
+    /* margin-left: 0px; */
     position: relative;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .header{
@@ -73,6 +80,13 @@ li{
     border-radius: 12px;
     align-items: center;
     height: 30px;
+}
+
+.hamburger{
+    display: none;
+    filter: invert(1);
+    height: 40px;
+
 }
 
 .card{
@@ -88,7 +102,7 @@ background-color: #252525;
 max-height: 60vh;
 display: flex;
 flex-wrap: wrap;
-overflow-y: scroll;
+overflow-y: auto;
 gap: 10px;
 margin: 10px;
 padding: 20px;
@@ -161,6 +175,10 @@ color: #727272;
     min-height: 40px;
 }
 
+.button{
+    display: flex;
+}
+
 .songbuttons {
     display: flex;
     justify-content: center;
@@ -229,6 +247,20 @@ color: #727272;
     width: 250px;
 }
 
+.songtime{
+    width: 125px;
+    color: black;
+    padding: 0 12px;
+}
+
+.volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+}
+
 .abovebar{
     display: flex;
     justify-content: space-between;
@@ -236,3 +268,73 @@ color: #727272;
     width: 100%;
     padding-bottom: 3px;
 }
+
+.cross img{
+    position: absolute;
+    right: 3px;
+    margin: 8px;
+}
+
+
+@media (max-width: 1200px) {
+    .left{
+        width: auto;
+        position: absolute;
+        z-index: 1;
+        left: -250%;
+        height: 100vh;
+        transition: all 1.3s;
+    }
+    .right{
+        width: 100vw;   
+
+    }
+    .playbar{
+        width: 95vw;
+
+    }
+    .hamburger{
+        display: block
+    }
+
+    .abovebar{
+        display: flex;
+        flex-direction: column;
+    }
+    .timevol{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    .signup{
+        display: none;
+    }
+
+    .playbar{
+        width: 88vw;
+    }
+    body{
+    
+        display: flex;
+        background-color: black;
+        color: white;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+    .right{
+        width: 100vw;
+        /* margin-left: 0px; */
+        position: relative;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+    
+
+
+}
+
+/* 
+@media (max-width: 530px) {
+    
+} */
