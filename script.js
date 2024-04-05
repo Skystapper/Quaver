@@ -362,6 +362,15 @@ document.querySelector(".cross").addEventListener("click", ()=>{
 })
 
 displayAlbums()
+displayAlbums()
+
+
+document.getElementById("login-sec").addEventListener("click", ()=>{
+
+    window.location.href = "login.html";
+})
+
+
 
 }    
    

@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
+ <!-- Add the slick-theme.css for default styling -->
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+ <!-- Add the slick-theme.css if you want default styling -->
+ <link rel="stylesheet" type="text/css"
+   href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -54,12 +58,12 @@
             </div>
             <div class="button">
                 <button class="signup btn">Signup</button>
-                <button class="login btn">login</button>
+                <button class="login btn" id="login-sec">login</button>
             </div>
         </div>
         <div class="Quaver-play">
-            <h1>Quaver Playlist</h1>
-            <div class="card-container">
+            <h1 class="heading-main-sec">Quaver Playlist</h1>
+            <div class="card-container card-slick-part">
                 
                 <div data-folder="cs" class="card">
                     <!-- <div class="play">
@@ -124,9 +128,13 @@
 
         </div>
     </div>
+ <!--  Custom scripts slick slider for this template -->
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- javascript -->
     <script src="script.js"></script>
+ 
 </body>
-
 </html>

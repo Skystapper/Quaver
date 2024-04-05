@@ -178,3 +178,21 @@ body {
 input[type="radio"] {
   display: none;
 }
+
+
+.close-sec-login{
+  position: absolute;
+  z-index: 10;
+  right: 15px;
+  top: 15px!important;
+  filter: invert(1);
+
+}
+.close-sec-login > img{
+  height: 60px;
+  width: 60px;
+}
+.close-sec-login:hover{
+
+  filter: invert(0.5);
+    }
