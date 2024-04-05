@@ -1,0 +1,7 @@
+#cover{
+    width: 300px;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    border: solid black;
+}

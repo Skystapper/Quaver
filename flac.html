@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Howler.js FLAC Example</title>
+   <!-- Include Howler.js from a CDN -->
+   <script src="https://unpkg.com/howler@2.2.3/dist/howler.min.js"></script>
+</head>
+<body>
+
+<!-- Play Button -->
+<button onclick="playFlac()">Play .flac</button>
+
+<script>
+   function playFlac() {
+      // Replace 'path/to/your/file.flac' with the actual path to your .flac file
+      const flacFilePath = 'http://127.0.0.1:5500/song/Exil%20-%20Hiboky%20(FLAC).flac';
+
+      // Create a Howl instance
+      const sound = new Howl({
+         src: [flacFilePath],
+         format: ['flac'], // Specify the format
+      });
+
+      // Play the audio
+      sound.play();
+   }
+</script>
+
+</body>
+</html>
