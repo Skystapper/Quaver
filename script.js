@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 async function displayAlbums(){
     currfolder = "song"
     console.log(currfolder)
-    let a = await fetch(`http://127.0.0.1:5500/song`)
+    let a = await fetch(`http://127.0.0.1:8080/song`)
     let response = await a.text()
     // console.log(response)
     let div = document.createElement("div")
@@ -30,7 +30,7 @@ async function displayAlbums(){
        if(e.href.includes("/song/")){
             
             let folder = e.href.split("/").slice(-1)[0]
-            let a = await fetch(`http://127.0.0.1:5500/song/${folder}/info.json`)
+            let a = await fetch(`http://127.0.0.1:8080/song/${folder}/info.json`)
             let response = await a.json()
             
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
@@ -69,7 +69,7 @@ async function displayAlbums(){
 
 
 async function getSongs(currfolder){
-    let a = await fetch(`http://127.0.0.1:5500/${currfolder}`)
+    let a = await fetch(`http://127.0.0.1:8080/${currfolder}`)
     let response = await a.text()
     // console.log(response)
     let div = document.createElement("div")
