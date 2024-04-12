@@ -1,5 +1,12 @@
-
 {
-    "email": "metro@gmail.com",
-    "password": "1234metro" 
+    "users": [
+        {
+            "email": "metro@gmail.com",
+            "password": "1234metro"
+        },
+        {
+            "email": "metro@gmail.com",
+            "password": "1234metro"
+        }
+    ]
 }

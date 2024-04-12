@@ -171,7 +171,7 @@ const playMusic = (track, pause=false) => {
 
 
 async function main() {
-currfolder =  "song/ncs"
+currfolder =  "song/All%20Songs"
 await getSongs(currfolder)
 console.log(songs)  
 
@@ -388,3 +388,7 @@ document.querySelector(".btn-search").addEventListener("click", (btn) => {
   document.querySelector(".search-close-btn").addEventListener("click", (btn) => {
     document.querySelector(".search-area").style = "right: -200%";
   });
+
+
+        
+        

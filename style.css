@@ -349,7 +349,7 @@ background-color: #000000;
     background: black;
     border-radius: 10px;
     position: absolute;
-    bottom: 8px;
+    bottom: 0px;
     margin: 6px;
     cursor: pointer;
 }
