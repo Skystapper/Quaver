@@ -370,6 +370,11 @@ document.getElementById("login-sec").addEventListener("click", ()=>{
     window.location.href = "login.html";
 })
 
+document.getElementById("login-sec-two").addEventListener("click", ()=>{
+
+    window.location.href = "login.html";
+})
+
 
 
 }    
@@ -377,7 +382,9 @@ document.getElementById("login-sec").addEventListener("click", ()=>{
 main()
   
 
-
 document.querySelector(".btn-search").addEventListener("click", (btn) => {
-  
-});
+    document.querySelector(".search-area").style = "right: 0%";
+  });
+  document.querySelector(".search-close-btn").addEventListener("click", (btn) => {
+    document.querySelector(".search-area").style = "right: -200%";
+  });

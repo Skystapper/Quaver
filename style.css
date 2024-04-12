@@ -274,14 +274,15 @@ border-radius: 5px;
   }
   
 
-.login{
-    padding: 15px 20px;
-    border-radius: 100px;
+.login-btn{
+    display: none !important;
+    padding: 8px 10px;
+    border-radius: 50%;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
 }
 
-.login:hover{
+.login-btn:hover{
 cursor: pointer;
 color: #ffffff;
 background-color: #000000;
@@ -430,3 +431,7 @@ background-color: #000000;
     text-decoration: none; color: white; font-size: 26px;
 }
 
+.mob-login-part{
+    display: none; 
+    
+}
