@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <h1>Registration</h1>
+    <form id="registrationForm">
+        <label for="newUsername">New Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required><br>
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required><br>
+        <button type="button" onclick="register()">Register</button>
+    </form>
+
+    <script>
+        // Check if users.json exists, if not, create it with an empty array
+        if (!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify([]));
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                alert('Login successful!');
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+
+        function register() {
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            const users = JSON.parse(localStorage.getItem('users'));
+            
+            // Check if username already exists
+            if (users.some(user => user.username === newUsername)) {
+                alert('Username already exists. Please choose another one.');
+                return;
+            }
+
+            // Add new user to the users array
+            users.push({ username: newUsername, password: newPassword });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Registration successful!');
+        }
+    </script>
+</body>
+</html>

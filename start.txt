@@ -2,6 +2,8 @@
 @echo off
 setlocal
 
+git pull
+
 :: Check if live-server is globally installed
 live-server --version >nul 2>&1
 if %errorlevel% neq 0 (
@@ -34,4 +36,3 @@ if %errorlevel% neq 0 (
 node_modules\.bin\live-server --open=/
 
 endlocal
->>>>>>> 85b684efbb16dbd8e1895db7f1dce2d37781548a

@@ -391,4 +391,19 @@ document.querySelector(".btn-search").addEventListener("click", (btn) => {
 
 
         
-        
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (loggedInUser) {
+      // Hide the login button
+      document.getElementById('login-sec').style.display = 'none';
+      document.getElementById('login-sec-two').style.display = 'none';
+
+      // Show the circular div with the initial of the username
+      const initial = loggedInUser.username.charAt(0).toUpperCase();
+      const loggedInUserDiv = document.getElementById('loggedInUser');
+      loggedInUserDiv.textContent = initial;
+      // Optionally, you can add an event listener to perform an action when the circular div is clicked
+      loggedInUserDiv.addEventListener('click', function() {
+          // Perform any action, such as redirecting to a user profile page
+          window.location.href = 'profile.html';
+      });
+  }
