@@ -391,19 +391,63 @@ document.querySelector(".btn-search").addEventListener("click", (btn) => {
 
 
         
+//   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+//   if (loggedInUser) {
+//       // Hide the login button
+//       document.getElementById('login-sec').style.display = 'none';
+//       document.getElementById('login-sec-two').style.display = 'none';
+
+//       // Show the circular div with the initial of the username
+//       const initial = loggedInUser.username.charAt(0).toUpperCase();
+//       const loggedInUserDiv = document.getElementById('loggedInUser');
+//       loggedInUserDiv.textContent = initial;
+//       // Optionally, you can add an event listener to perform an action when the circular div is clicked
+//       loggedInUserDiv.addEventListener('click', function() {
+//           // Perform any action, such as redirecting to a user profile page
+//           window.location.href = 'profile.html';
+//       });
+//   }
+
+
+
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
   if (loggedInUser) {
-      // Hide the login button
-      document.getElementById('login-sec').style.display = 'none';
-      document.getElementById('login-sec-two').style.display = 'none';
+      // Hide the login button if a user is logged in
+      document.querySelector('#loginButton').style.display = 'none';
 
-      // Show the circular div with the initial of the username
       const initial = loggedInUser.username.charAt(0).toUpperCase();
-      const loggedInUserDiv = document.getElementById('loggedInUser');
+      const loggedInUserDiv = document.createElement('div');
+      loggedInUserDiv.className = 'initial-circle';
       loggedInUserDiv.textContent = initial;
-      // Optionally, you can add an event listener to perform an action when the circular div is clicked
+      document.querySelector('.header').appendChild(loggedInUserDiv);
+
+      // Add event listeners for hover and click events
+      loggedInUserDiv.addEventListener('mouseenter', function() {
+          // Replace the initial with the logout icon when hovered over
+          loggedInUserDiv.innerHTML = '<i class="fas fa-sign-out-alt" style = "position: absolute; right:28px" id="logout-part" aria-hidden="true"></i>';
+      });
+
+      loggedInUserDiv.addEventListener('mouseleave', function() {
+          // Replace the logout icon with the initial when mouse leaves
+          loggedInUserDiv.textContent = initial;
+      });
+
       loggedInUserDiv.addEventListener('click', function() {
-          // Perform any action, such as redirecting to a user profile page
-          window.location.href = 'profile.html';
+          // Remove the logged-in user information from localStorage
+          localStorage.removeItem('loggedInUser');
+          alert('Logged out successfully!');
+          // Redirect to the home page
+          window.location.href = 'index.html';
+      });
+  } else {
+      // Show the login button if no user is logged in
+      const loginButton = document.createElement('button');
+      loginButton.className = 'login btn';
+      loginButton.textContent = 'Login';
+      document.getElementById('loginButton').appendChild(loginButton);
+      // Optionally, you can add an event listener to perform an action when the login button is clicked
+      loginButton.addEventListener('click', function() {
+          // Redirect to the login page
+          window.location.href = 'login.html';
       });
   }
