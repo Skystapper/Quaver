@@ -111,7 +111,18 @@ li{
     filter: invert(1);
     height: 40px;
 
+
 }
+
+#logout-part {
+ 
+    position: absolute;
+z-index: 99;
+right: 5px;
+}
+
+
+
 .card:hover{
     
         background-color: #464646;
