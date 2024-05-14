@@ -16,9 +16,9 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function displayAlbums(){
-    currfolder = "song"
+    // currfolder = "song"
     console.log(currfolder)
-    let a = await fetch(`http://127.0.0.1:5500/song`)
+    let a = await fetch(`http://127.0.0.1:5502/Quaver/song`)
     let response = await a.text()
     // console.log(response)
     let div = document.createElement("div")
@@ -27,16 +27,16 @@ async function displayAlbums(){
     let cardContainer = document.querySelector(".card-container")
     // cardContainer.innerHTML = ""
     Array.from(anchors).forEach(async e=>{
-       if(e.href.includes("/song/")){
+       if(e.href.includes("/Quaver/song/")){
             
             let folder = e.href.split("/").slice(-1)[0]
-            let a = await fetch(`http://127.0.0.1:5500/song/${folder}/info.json`)
+            let a = await fetch(`http://127.0.0.1:5502/Quaver/song/${folder}/info.json`)
             let response = await a.json()
             
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
             
             <div class="pic">
-                <img src="/song/${folder}/cover.jpg" alt="img">
+                <img src="../Quaver/song/${folder}/cover.jpg" alt="img">
                 <div class="play">
                     <svg width="16" height="16" viewBox="0 0 20 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +60,8 @@ async function displayAlbums(){
         console.log(item.currentTarget.dataset.folder)
         await getSongs(currfolder)
         console.log(songs)
+        playMusic(songs[0])
+
     })
     
 })
@@ -69,7 +71,7 @@ async function displayAlbums(){
 
 
 async function getSongs(currfolder){
-    let a = await fetch(`http://127.0.0.1:5500/${currfolder}`)
+    let a = await fetch(`http://127.0.0.1:5502/Quaver/${currfolder}`)
     let response = await a.text()
     // console.log(response)
     let div = document.createElement("div")
@@ -126,7 +128,7 @@ async function getSongs(currfolder){
         
             const filePath = e.querySelector(".info").getElementsByTagName("div")[0]
             
-            var songURL = `/${currfolder}/` + filePath.innerText;
+            var songURL = `/Quaver/${currfolder}/` + filePath.innerText;
             fetch(songURL)
             .then(response => {
                 if (response.ok) {
@@ -150,7 +152,7 @@ getSongs('song/ncs')
 
 const playMusic = (track, pause=false) => {
                 
-                    songURL = `/${currfolder}/` + track;
+                    songURL = `/Quaver/${currfolder}/` + track;
                
                 currSong.src = songURL;
                 
@@ -171,11 +173,16 @@ const playMusic = (track, pause=false) => {
 
 
 async function main() {
-currfolder =  "song/All%20Songs"
-await getSongs(currfolder)
-console.log(songs)  
+// currfolder =  "song/All%20Songs"
+// await getSongs(currfolder)
+// console.log(songs)  
+currfolder = `song/All%20Songs`
+    console.log(currfolder)
+    await getSongs(currfolder)
+    console.log(songs)
+    playMusic(songs[0], true)
+// playMusic(songs[0], true)
 
-playMusic(songs[0], true)
 
 // 
 
@@ -242,6 +249,7 @@ play.addEventListener("click", ()=>{
     if(currSong.paused){
         currSong.play()
         play.src = "img/pause.svg"
+        console.log(currfolder)
 
     }
     else{
@@ -320,6 +328,7 @@ let index = songs.indexOf(fileName);
 // Check if index is valid and play the previous song
 if (index !== -1 && index - 1 >= 0) {
     let previousSong = songs[index - 1];
+    console.log(currfolder)
     playMusic(previousSong);
 }
 
@@ -338,6 +347,7 @@ let index = songs.indexOf(fileName);
 // Check if index is valid and play the next song
 if (index !== -1 && index + 1 < songs.length) {
     let nextSong = songs[index + 1];
+    console.log(currfolder)
     playMusic(nextSong);
     console.log(nextSong);
 }
@@ -437,7 +447,7 @@ document.querySelector(".btn-search").addEventListener("click", (btn) => {
           localStorage.removeItem('loggedInUser');
           alert('Logged out successfully!');
           // Redirect to the home page
-          window.location.href = 'index.html';
+          window.location.href = 'music.html';
       });
   } else {
       // Show the login button if no user is logged in
